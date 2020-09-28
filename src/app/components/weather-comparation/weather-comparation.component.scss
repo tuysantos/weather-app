@@ -1,0 +1,23 @@
+.comparation-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+
+    .card-wrapper {
+        text-align: left;
+        .card-container {
+            border: 1px solid;
+            margin-bottom: 20px;
+        }
+    }
+}
+.comparation-back-btn {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    button {
+        margin-right: 20px;
+    }
+    
+}

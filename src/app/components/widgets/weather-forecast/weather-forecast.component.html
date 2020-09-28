@@ -1,0 +1,10 @@
+<span class="forecast-wrapper" [ngClass]="{'maximum-temperature': weatherData?.isMaxTemp === true && checkForMax === true, 'minimum-temperature': weatherData?.isMaxTemp !== true}">
+    <div class="forecast-title">{{weatherData?.applicable_date}}</div>
+    <div class="forecast-content">
+        <div class="forecast-content-visual">
+            <img [src]="imgPath"/> <span>{{weatherData?.weather_state_name}}</span>
+        </div>
+        <div class="max-temp">Max: {{weatherData?.max_temp}}°C</div>
+        <div class="min-temp">Min: {{weatherData?.min_temp}}°C</div>
+    </div>
+</span>

@@ -1,0 +1,22 @@
+<div>
+    <form class="search-wrapper" [formGroup]="locForm" autocomplete="on">
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input matInput
+                type="text"
+                value=""
+                formControlName="location"
+                (keyup)="validateForm()"
+                class="location-input"
+                id="txtLocation" 
+                name="txtLocation" 
+            />
+            <button  mat-raised-button color="primary" (click)="search()" id="btnSearch" name="btnSearch">Search</button>
+            </div>
+        <div>
+            <mat-error *ngIf="hasError" id="location-error-required">
+                Location is required
+            </mat-error>
+        </div>
+    </form>
+</div>

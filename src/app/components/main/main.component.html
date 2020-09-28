@@ -1,0 +1,22 @@
+
+<div class="main-container">
+    <div class="main-search-container">
+        <app-search (searchEvent)="resolveSearchEvent($event)"></app-search>
+    </div>
+    <div *ngIf="cities?.length !== 0 && apiState === 'Done'">
+        Total records : {{totalRecords}} - Search criteria: '{{searchCriteria}}'
+    </div>
+    <div class="main-location-container">
+        <app-location-list 
+            [locationList]="cities" 
+            (compareLocationsEvent)="addToComparationList($event)"
+            (removeEvent)="removeFromList($event)"
+            (woeidEvent)="getLocationDetails($event)"
+            (removeAllEvent)="removeAllFromList()">
+        </app-location-list>
+        <div *ngIf="cities?.length === 0 && apiState === 'Done'">
+            No data found
+        </div>
+    </div>
+</div> 
+

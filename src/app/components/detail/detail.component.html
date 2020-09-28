@@ -1,0 +1,15 @@
+<div class="detail-container" *ngIf="apiState === 'Done'">
+    <div>
+        <app-weather-forecast-container [location]="city">
+        </app-weather-forecast-container>
+    </div>
+    <div class="back-btn">
+        <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+    </div>
+</div>
+<div class="spinner-loader">
+    <mat-spinner *ngIf="apiState !== 'Done'"
+    [diameter]="50"
+    [strokeWidth]="2"
+    color="accent"></mat-spinner>
+</div>

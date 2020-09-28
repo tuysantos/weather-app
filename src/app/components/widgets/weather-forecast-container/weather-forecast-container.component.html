@@ -1,0 +1,12 @@
+<div>
+    <button *ngIf="checkForMax" mat-raised-button color="primary" (click)="removeItem(woeid)" class="forecast-remove">Remove</button>
+    <div class="weather-location-info">
+        <div>{{locationType}}: {{title}} - {{country}}</div>
+        <div>Time: {{time}}</div>
+        <div>Time zone: {{timezone}}</div>
+    </div>
+    <div class="weather-forecast-wrapper">
+        <app-weather-forecast *ngFor="let forecastData of forecasts" class="weather-forecast-widget"
+            [weatherData]="forecastData" [checkForMax]="checkForMax"></app-weather-forecast>
+    </div>
+</div>

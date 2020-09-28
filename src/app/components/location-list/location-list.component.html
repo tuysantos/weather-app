@@ -1,0 +1,41 @@
+<div *ngIf="apiState === 'Pending'">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div class="location-container">
+    <table *ngIf="locationList?.length > 0" class="location-table">
+        <tr class="location-header">
+            <th (click)="sortBy('title')">Location 
+                <mat-icon [ngStyle]="{'display': isSortDesc && property === 'title' ? '': 'none'}" 
+                    svgIcon="arrow_down" aria-hidden="false" aria-label="sort desc"></mat-icon>
+                <mat-icon [ngStyle]="{'display': !isSortDesc && property === 'title' ? '': 'none'}" 
+                    svgIcon="arrow_up" aria-hidden="false" aria-label="sort asc"></mat-icon>
+            </th>
+            <th (click)="sortBy('location_type')">Type
+                <mat-icon [ngStyle]="{'display': isSortDesc && property === 'location_type' ? '': 'none'}" 
+                    svgIcon="arrow_down" aria-hidden="false" aria-label="sort desc"></mat-icon>
+                <mat-icon [ngStyle]="{'display': !isSortDesc && property === 'location_type' ? '': 'none'}" 
+                    svgIcon="arrow_up" aria-hidden="false" aria-label="sort asc"></mat-icon>
+            </th>
+            <th class="header-action">
+                <button [disabled]="dispkayNumber === 0" 
+                    mat-raised-button matBadge="{{dispkayNumber}}" 
+                    matBadgePosition="after" 
+                    matBadgeColor="warn" 
+                    color="primary" 
+                    (click)="compareLocations()">Compare locations</button>
+            </th>
+        </tr>
+        <tr *ngFor="let item of locationList; trackBy: trackByFnl; let i=index" 
+            [ngStyle]="{'background-color': i % 2 === 0 ? '#fff' : '#c0c0c0'}">
+            <td>{{item.title}}</td>
+            <td>{{item.location_type}}</td>
+            <td>
+                <button mat-raised-button color="primary" 
+                    (click)="viewDetails(item.woeid)" 
+                    class="view-detils">view detail</button>
+                <button [disabled]="isInList(item.woeid) ? true: false" mat-raised-button 
+                    color="primary" (click)="addToCompareList(item.woeid)">Add to compare list</button>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+.forecast-wrapper {
+    display: inline-block;
+    margin-right: 20px;
+    width: 140px;
+    .forecast-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #337ab7;
+    }
+    .forecast-content {
+        margin-top: 10px;
+        text-align: left;
+        .forecast-content-visual {
+            margin-bottom: 10px;
+            font-size: 13px;
+            img, span {
+                display: inline-block;
+            }
+            img {
+                margin-right: 10px;
+                height: 24px;
+            }
+        }
+    }
+    .max-temp, .min-temp {
+        font-size: 13px;
+        text-align: left;
+    }
+}
+
+.maximum-temperature {
+    border: 1px solid #008000;
+    padding: 10px;
+}
+
+.minimum-temperature {
+    border: 1px solid #ffffff;
+    padding: 10px;
+}

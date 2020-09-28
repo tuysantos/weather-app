@@ -1,0 +1,30 @@
+.location-container {
+    .location-table {
+        .location-header {
+            height: 40px;
+            background-color: #000;
+            color: #fff;
+            margin-bottom: 20px;
+            .header-action {
+                background-color: #fff;
+                color: #000;
+            }
+            mat-icon {
+                vertical-align: bottom;
+            }
+        }
+        th {
+            cursor: pointer;
+            min-width: 200px;
+        }
+        td {
+            padding-left: 10px;
+        }
+        .view-detils {
+            background-color: #008000;
+        }
+        button {
+            margin-right: 15px;
+        }
+    }
+}

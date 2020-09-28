@@ -1,0 +1,23 @@
+<div class="comparation-back-btn" *ngIf="apiState === 'Done' || apiState === 'Error'">
+    <button mat-raised-button color="warn" (click)="removeAllItems()">Remove all comparation</button>
+    <button mat-raised-button color="warn" (click)="sortForecast()">Sort forecast
+        <mat-icon [ngStyle]="{'display': !isSortDesc ? '': 'none'}" svgIcon="arrow_down" aria-hidden="false" aria-label="sort desc"></mat-icon>
+        <mat-icon [ngStyle]="{'display': isSortDesc ? '': 'none'}" svgIcon="arrow_up" aria-hidden="false" aria-label="sort asc"></mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+    <span *ngIf="checkForMax">Maximum Temperature for each day Highlighted (vertical comparation between places)</span>
+</div>
+<div class="comparation-container">
+    <div *ngIf="apiState === 'Done'" class="card-wrapper">
+        <mat-card *ngFor="let city of comparationList; let i=index" class="card-container">
+            <app-weather-forecast-container [location]="city" [maxWeatherForecats]="maxWeatherForecats" [checkForMax]="checkForMax">
+            </app-weather-forecast-container>
+        </mat-card>
+    </div>
+    <div class="spinner-loader">
+        <mat-spinner *ngIf="apiState !== 'Done'"
+        [diameter]="50"
+        [strokeWidth]="2"
+        color="accent"></mat-spinner>
+    </div>
+</div>
